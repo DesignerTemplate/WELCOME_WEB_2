@@ -74,9 +74,9 @@
 <body>
   <nav>
     <ul>
-      <li><a onclick="scrollToSection('home')">Home</a></li>
-      <li><a onclick="scrollToSection('info')">Info</a></li>
-      <li><a onclick="scrollToSection('read')">Read</a></li>
+      <li><a onclick="showSection('home')">Home</a></li>
+      <li><a onclick="showSection('info')">Info</a></li>
+      <li><a onclick="showSection('read')">Read</a></li>
     </ul>
   </nav>
 
@@ -85,7 +85,7 @@
     <p>Welcome to Utopia. Cryptocurrencies offer an alternative to traditional banking systems and open up decentralized opportunities for everyone.</p>
   </section>
 
-  <section id="info" class="section-title">
+  <section id="info" style="display: none;">
     <h1>Utopia Benefits</h1>
     <p>
       UTOPIA offers a comprehensive solution designed to revolutionize digital creativity, collaboration, and productivity. One of its main benefits lies in its seamless integration of design and development, allowing users to transition effortlessly between visual concepts and functional code. This eliminates redundancy and saves valuable time for teams working on modern web projects. UTOPIA fosters real-time collaboration, meaning multiple users can work simultaneously on the same project, enhancing communication and speeding up project delivery.
@@ -96,7 +96,7 @@
     </p>
   </section>
 
-  <section id="read" class="section-title">
+  <section id="read" style="display: none;">
     <h1>How the Utopia App Works</h1>
     <p>
       The UTOPIA app functions as an all-in-one design-to-code environment, enabling users to build and manage web projects with remarkable ease and efficiency. At its core, UTOPIA combines a visual editor with code-level control, so designers and developers can work together in perfect harmony. Users begin by designing their layout in a drag-and-drop environment that mirrors modern UI/UX standards. Every visual change instantly generates clean React-based JSX code in the background, bridging the gap between design and development.
@@ -108,8 +108,11 @@
   </section>
 
   <script>
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    function showSection(sectionId) {
+      const sections = ['home', 'info', 'read']
+      sections.forEach(id => {
+        document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none'
+      })
     }
   </script>
 </body>
